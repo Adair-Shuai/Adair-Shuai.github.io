@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Tags｜undefined
+        Block Compressed Sparse Row (BSR) Matrix Format｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/Tags/">
+    <link rel="canonical" href="http://yoursite.com/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -123,102 +123,135 @@
 </script>
 
 <!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="undefined/images/yici.png">
+
+
 <style>
-    .intro-header .site-heading {
-        margin: 50px;
-    }
     
     header.intro-header {
-        background-image: url('')
+        background-image: url('/images/yici.pngundefined')
     }
+
     
 </style>
 
-<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading text-center">
-                    <h1>Tags</h1>
-                    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Block Compressed Sparse Row (BSR) Matrix Format</h1>
+                    
+                    <span class="meta">
+                         作者 Shuai Zheng
+                        <span>
+                          日期 2019-04-20
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#-笔记"
+                           title="-笔记">-笔记</a>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Block Compressed Sparse Row (BSR) Matrix Format
+        </span>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>BSR is format storage sparse matrix, mainly used in intel MKL solver. Uniform blocks are spilted in original matrix and the zero-blocks and non-zero-blocks are exactly in the blocks. NOTED THAT, the dimension of original matrix must be the integer multiple of the block dimension, ensuring the matrix can be spilt uniformly.</p>
+<p>Here’s an example to explain BSR</p>
+<p>$$<br>D=\left(<br>\begin{matrix}<br>1 &amp; 0 &amp; 6 &amp; 7 &amp; <em> &amp; </em> \<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; <em> &amp; </em> \</p>
+<ul>
+<li>&amp; <em> &amp; 1 &amp; 4 &amp; </em> &amp; * \</li>
+<li>&amp; <em> &amp; 5 &amp; 1 &amp; </em> &amp; * \</li>
+<li>&amp; * &amp; 4 &amp; 3 &amp; 7 &amp; 2 \</li>
+<li>&amp; * &amp; 0 &amp; 0 &amp; 0 &amp; 0 \<br>\end{matrix}<br>\right)<br>$$</li>
+</ul>
+<p>For example, assuming the size of block is 2.</p>
+<p><img src="Block Matrix" alt="/_posts/Block-Compressed-Sparse-Row-BSR-Matrix-Format/Block Matrix.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">values=[<span class="number">1</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">0</span> <span class="number">0</span> <span class="number">7</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">columes=[<span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span>]</span><br><span class="line">rowIndex=[<span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p>Values<br>A real array that contains the elements of the <strong>non-zero blocks</strong> of a sparse matrix. The elements are stored block-by-block in row-major order. A non-zero block is the block that contains at least one non-zero element. All elements of non-zero blocks are stored, even if some of them is equal to zero. Within each non-zero block elements are stored in column-major order in the case of one-based indexing, and in row-major order in the case of the zero-based indexing.</p>
+<p>columns<br>Element i of the integer array columns is the number of the column in the block matrix that contains thei-th non-zero block.</p>
+<p>rowIndex</p>
+<p>Total blocks amount previous block-row i. </p>
+<pre><code>rowIndex[i+1]-rowIndex[i]=Block Num in block-row i
+</code></pre><hr>
+<p>Reference:<br><a href="https://blog.csdn.net/seamanj/article/details/83004011" target="_blank" rel="noopener">block compressed sparse row (BSR) matrix format</a><br><a href="https://zhuanlan.zhihu.com/p/37525925" target="_blank" rel="noopener">稀疏矩阵的主要存储格式</a><br><a href="http://www.cs.colostate.edu/~mcrob/toolbox/c++/sparseMatrix/sparse_matrix_compression.html" target="_blank" rel="noopener">Sparse Matrix Compression Formats</a><br><a href="https://blog.csdn.net/anshan1984/article/details/8580952" target="_blank" rel="noopener">稀疏矩阵的存储格式（Sparse Matrix Storage Formats）</a></p>
+
+                <hr>
                 
-                <a href="#-笔记" title="-笔记" rel="2">-笔记</a>
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/01/01/传热传质/" data-toggle="tooltip" data-placement="top"
+                           title="Adv. HMT">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
-                <a href="#-Markdown" title="-Markdown" rel="1">-Markdown</a>
+
                 
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
             </div>
 
-            <!-- 标签列表 -->
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="-笔记">
-                    <span class="tag-text">-笔记</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/">
-                        <h2 class="post-title">
-                            Block Compressed Sparse Row (BSR) Matrix Format
-                        </h2>
-                        
-                    </a>
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    
                 </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/2019/01/01/传热传质/">
-                        <h2 class="post-title">
-                            Adv. HMT
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            高等传热传质笔记（持续更新）
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
             </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="-Markdown">
-                    <span class="tag-text">-Markdown</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/2018/03/31/Markdown/">
-                        <h2 class="post-title">
-                            Markdown
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            Markdown 基本语法——两分钟学会标记语言
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
