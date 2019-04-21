@@ -178,6 +178,17 @@
 <li>ActiveSolid()：计算节点刚度$Ke$，并添加外部载荷$\rho_b g$，得到固体系数$C_{dr}$。 GGP</li>
 <li>ActiveFlw()：</li>
 </ul>
+<p><img src="D:\00 GitHub\Myblog\blog\source\_posts\FracTHM-Simulator\JacMtrix.png" alt=""></p>
+<ul>
+<li>刚度矩阵 <strong>GGP</strong>(Geomechanics-Geochanics Primary)</li>
+<li>耦合矩阵 <strong>GRP</strong>(Geomechanics-Reservoir Primary)</li>
+<li>耦合矩阵 <strong>RGP</strong>(Reservoir-Geomechanics Primary)</li>
+<li>流体-热流动矩阵 <strong>RRP</strong>(Reservoir-Reservoir Primary)</li>
+</ul>
+<p>各个矩阵都是稀疏矩阵，采用intel MKL solver直接求解，矩阵使用intel BSR(Block Sparse Row)格式分块存储，具体存储格式见<a href="http://z-s.xyz/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/" target="_blank" rel="noopener">Block Compressed Sparse Row (BSR) Matrix Format</a>。</p>
+<p>对于RRP矩阵$b_h=b_w=2$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">RRP.value = <span class="keyword">new</span> <span class="keyword">double</span>[NNZ*blocksize];</span><br><span class="line"><span class="comment">//NNZ: Number of non-zero block; for sym matrix, repeat connections are not contained</span></span><br><span class="line"><span class="comment">//blocksize: block_h*block_w</span></span><br><span class="line"></span><br><span class="line">RRP.da = <span class="keyword">new</span> <span class="keyword">int</span>[ROW];   <span class="comment">//index of diagonal block's first entry for i-th row</span></span><br><span class="line">RRP.la = <span class="keyword">new</span> <span class="keyword">int</span>[CNC];   <span class="comment">//index of the la-block entry's starting address of i-th Cnc </span></span><br><span class="line">RRP.ua = <span class="keyword">new</span> <span class="keyword">int</span>[CNC];   <span class="comment">//index of the ua-block entry's starting address of i-th Cnc</span></span><br><span class="line"><span class="comment">//Example: RRP.la[4] stand for the starting address of the second(1-th Cnc) la-block.</span></span><br><span class="line"><span class="comment">//		   So, the block value is RRP.value[RRP.value + RRP.la[4]]</span></span><br></pre></td></tr></table></figure>
+<p>在RRP矩阵中$b_h=b_w=2​$</p>
 
                 <hr>
                 
