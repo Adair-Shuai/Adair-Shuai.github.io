@@ -178,7 +178,7 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <p>BSR is format storage sparse matrix, mainly used in intel MKL solver. Uniform blocks are spilted in original matrix and the zero-blocks and non-zero-blocks are exactly in the blocks. NOTED THAT, the dimension of original matrix must be the integer multiple of the block dimension, ensuring the matrix can be spilt uniformly.</p>
 <p>Here’s an example to explain BSR</p>
-<p>$$<br>D=<br>\begin{pmatrix}<br>1 &amp; 0 &amp; 6 &amp; 7 &amp; <em> &amp; </em> \\<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; <em> &amp; </em> \\<br>1 &amp; <em> &amp; 1 &amp; 4 &amp; </em> &amp; <em> \\<br>1 &amp; </em> &amp; 5 &amp; 1 &amp; <em> &amp; </em> \\<br>1 &amp; <em> &amp; 4 &amp; 3 &amp; 7 &amp; 2 \\<br>1 &amp; </em> &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\<br>\end{pmatrix}<br>$$</p>
+<p>$$<br>D=<br>\begin{pmatrix}<br>1 &amp; 0 &amp; 6 &amp; 7 &amp; <em> &amp; </em> \\<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; <em> &amp; </em> \\<br>1 &amp; <em> &amp; 1 &amp; 4 &amp; </em> &amp; <em> \\<br>1 &amp; </em> &amp; 5 &amp; 1 &amp; <em> &amp; </em> \\<br>1 &amp; <em> &amp; 4 &amp; 3 &amp; 7 &amp; 2 \\<br>1 &amp; </em> &amp; 0 &amp; 0 &amp; 0 &amp; 0<br>\end{pmatrix}<br>$$</p>
 <p>1 &amp; 0 &amp; 6 &amp; 7 &amp; <em> &amp; </em> \<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; <em> &amp; </em> \</p>
 <ul>
 <li>&amp; <em> &amp; 1 &amp; 4 &amp; </em> &amp; * \</li>
