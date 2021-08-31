@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="无所不想，无所不好">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="诗" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Adv. HMT｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2019/01/01/传热传质/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    诗
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="undefined/images/yici.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/images/yici.pngundefined')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Adv. HMT</h1>
+                    
+                    <h2 class="subheading">高等传热传质笔记（持续更新）</h2>
+                    
+                    <span class="meta">
+                         作者 Shuai Zheng
+                        <span>
+                          日期 2019-01-01
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#-笔记"
+                           title="-笔记">-笔记</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Adv. HMT
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>[TOC]</p>
+<h1 id="Heat-Conduction"><a href="#Heat-Conduction" class="headerlink" title="Heat Conduction"></a>Heat Conduction</h1><h1 id="Heat-Convection"><a href="#Heat-Convection" class="headerlink" title="Heat Convection"></a>Heat Convection</h1><h3 id="对流传热微分方程"><a href="#对流传热微分方程" class="headerlink" title="对流传热微分方程"></a>对流传热微分方程</h3><p>$$<br>\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \textbf{v})=0<br>\<br>\rho \Big(\frac{\partial \textbf{v}}{\partial t}+(\textbf{v}\cdot \nabla )\textbf{v}\Big)=-\nabla p +\rho\textbf{f}+\mu \nabla^2\textbf{v}<br>\<br>\rho c \Big(\frac{\partial T}{\partial t}+(\textbf{v}\cdot \nabla )T\Big)=\nabla \cdot (\lambda \nabla T)+\Phi+\dot{q}<br>$$<br>控制方程为非线性，并且流动与传热需要耦合求解</p>
+<p><img src="/images/yici.png" alt="tupian"></p>
+<p>假设流体各物性参数为常数，此时流动与传热解耦，可独立求解，简化后的控制方程如下：</p>
+<p>$$<br>\nabla \cdot \textbf{v}=0<br>\<br>\rho (\textbf{v}\cdot \nabla )\textbf{v}=-\nabla p +\mu \nabla^2 \textbf{v}<br>\<br>\rho c (\textbf{v}\cdot \nabla )T=\nabla \cdot (\lambda \nabla T)+\Phi+\dot{q}<br>$$</p>
+<h3 id="边界层理论"><a href="#边界层理论" class="headerlink" title="边界层理论"></a>边界层理论</h3><p>在靠近避免位置会形成速度、热、对流和浓度边界层。边界层底部梯度最大，顶部梯度为0，趋向于主流数值。<br>求解思路：</p>
+<pre><code>1. 对控制方程无量纲化，引入无量纲量
+2. 引入*Re*, *Pr*, *Sc*无量纲数描述边界层，并改写控制方程
+3. 考察解所依赖的变量，并进一步化简，得出依赖的变量和参数
+4. 通过具体问题确定解的形式
+</code></pre>
+<p>$$<br>u^{*}=f(x^{*},y^{*},Re_L,\frac{dp^{*}}{dx^{*}})<br>\tau_w=\mu\frac{\partial u}{\partial y}|<em>{y=0}<br>c_f=\frac{\tau_w}{\rho V^2/2}<br>h=\frac{-\lambda\frac{\partial T}{\partial y}|</em>{y=0}}{T_w-T_\infty}<br>$$</p>
+<p>由于此时假设物性参数为常数，流动与传热解耦，因此可<strong>先求出速度分布，再求传热</strong>。控制方程进一步简化：</p>
+<p>$$<br>\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=0<br>\<br>u\frac{\partial u}{\partial x}+v\frac{\partial v}{\partial y}=\nu \frac{\partial^2u}{\partial y^2}<br>\<br>u\frac{\partial T}{\partial x}+v\frac{\partial T}{\partial y}=\alpha \frac{\partial^2 T}{\partial y^2}<br>$$</p>
+<h3 id="外掠平板层流流动与换热"><a href="#外掠平板层流流动与换热" class="headerlink" title="外掠平板层流流动与换热"></a>外掠平板层流流动与换热</h3><h4 id="相似变换法"><a href="#相似变换法" class="headerlink" title="相似变换法"></a>相似变换法</h4><pre><code>1. 由连续性方程引入流函数
+2. 将流函数表示的速度代入控制方程，并对方程无量纲化，引入无量纲量
+3. 确定相似变量
+4. 求解
+</code></pre>
+<p>对均匀来流速度边界层有，Blasius 解：<br>$$<br>\frac{\delta(x)}{x}=\frac{5}{\sqrt{Re_x}}\<br>c_f=\frac{\tau_w}{\rho u_\infty^2/2}=0.664Re_x^{-1/2}<br>$$</p>
+<p>对等温平板</p>
+<ul>
+<li><p>Pr&gt;0.6 （Pohlhausen解）<br>$$<br>\delta/\delta_t\approx Pr^{1/3}<br>Nu_x=0.332Re_x^{1/2}Pr^{1/3}\<br>\bar{Nu}_x=0.664Re_x^{1/2}Pr^{1/3}<br>$$</p>
+</li>
+<li><p>Pr&lt;0.6<br>$$<br>Nu_x=0.564Re_x^{1/2}Pr^{1/2}<br>$$<br>注：当Pr&lt;&lt;1时，热边界层厚度远大于速度边界层，可认为热边界层中 $u=u_\infty$</p>
+</li>
+</ul>
+<p>​        当Pr&gt;&gt;1时，热边界层厚度小于速度边界层，可认为速度在热边界层中呈线性分布</p>
+<p>外掠平板问题求解步骤</p>
+<pre><code>1. 确定Re, Pr, Sc的大小，并确定定性温度
+2. 根据Re判断流动状态，采用正确的Nu计算公式
+3. 根据牛顿冷却定律计算热流密度
+</code></pre>
+<h4 id="积分方程法"><a href="#积分方程法" class="headerlink" title="积分方程法"></a>积分方程法</h4><pre><code>1. 计算动量积分方程，根据假设速度剖面计算速度剖面
+2. 计算能量积分方程，将假设温度剖面与速度剖面代入能量方程
+3. 得到速度边界层厚度与热边界层厚度的关系
+</code></pre>
+<p>$$<br>\int_0^{\delta}\frac{\partial \theta}{\partial t}dx=\frac{d}{dt}\int_0^{\delta}\theta dx-\theta|_{\delta}\frac{d\delta}{dt}<br>$$</p>
+<h6 id="推广—多台阶平板温度"><a href="#推广—多台阶平板温度" class="headerlink" title="推广—多台阶平板温度"></a>推广—多台阶平板温度</h6><h6 id="推广—等热流壁面"><a href="#推广—等热流壁面" class="headerlink" title="推广—等热流壁面"></a>推广—等热流壁面</h6><p>相似变量法<br>$$<br>Nu_x=\frac{q}{T_w(x)-T_\infty}\frac{x}{\lambda}=0.453Re_x^{1/2}Pr^{1/3}<br>$$</p>
+<h6 id="推广—外掠楔状体层流边界层"><a href="#推广—外掠楔状体层流边界层" class="headerlink" title="推广—外掠楔状体层流边界层"></a>推广—外掠楔状体层流边界层</h6><p>根据势流理论有 $u_\infty=cx^m$，其中$m=\frac{\beta}{2-\beta}$，$\beta \pi$为夹角</p>
+<p>相似变换法，$Pr=(m+1)Pr$</p>
+<h6 id="其他求解方法"><a href="#其他求解方法" class="headerlink" title="其他求解方法"></a>其他求解方法</h6><ul>
+<li>Reynolds类比，Pr=Sc=1时 ，$\frac{c_f}{2}Re_L=Nu=Sh$</li>
+<li>Chilton-Colburn类比</li>
+</ul>
+<h3 id="管槽内的层流流动与换热"><a href="#管槽内的层流流动与换热" class="headerlink" title="管槽内的层流流动与换热"></a>管槽内的层流流动与换热</h3><p>控制方程</p>
+<p>$$<br>u\frac{\partial T}{\partial x}=\alpha\Big[\frac{1}{r}\frac{\partial }{\partial r}\Big(r\frac{\partial T}{\partial r}\Big)+\frac{\partial^2 T}{\partial x^2}\Big]<br>$$<br>忽略黏性耗散项，则上式可简化为<br>$$<br>u\frac{\partial T}{\partial x}=\alpha\frac{1}{r}\Big(r\frac{\partial T}{\partial r}\Big)+\frac{\partial^2 T}{\partial x^2}<br>$$</p>
+<h4 id="充分发展区"><a href="#充分发展区" class="headerlink" title="充分发展区"></a>充分发展区</h4><h5 id="充分发展区的特点"><a href="#充分发展区的特点" class="headerlink" title="充分发展区的特点"></a>充分发展区的特点</h5><ul>
+<li><p>速度充分发展区<br>$$<br>\frac{\partial u}{\partial x}=0\<br>\frac{u(r)}{u_m}=2\Big[1-\Big(\frac{r}{r_0}\Big)^2\Big]\<br>u_m=-\frac{r_0^2}{8\mu}\frac{dp}{dx}<br>$$</p>
+</li>
+<li><p>热充分发展区<br>$$<br>\frac{\partial}{\partial x}\Big[\frac{T_w(x)-T(r,x)}{T_w(x)-T_m(x)}\Big]=0\<br>\rho u_m A_c c_p T_m=\int_{A_c} \rho u c_p TdA\<br>T_m=\frac{2}{u_mr_0^2}\int_0^{r_0} uTrdr<br>$$</p>
+</li>
+</ul>
+<p>$$<br>h(x)=\frac{-\lambda\frac{\partial T}{\partial r}|_{r=r_0}}{T_w(x)-T_m(x)}<br>$$</p>
+<h5 id="两种常见的边界条件—等壁温与等热流"><a href="#两种常见的边界条件—等壁温与等热流" class="headerlink" title="两种常见的边界条件—等壁温与等热流"></a>两种常见的边界条件—等壁温与等热流</h5><ul>
+<li><p>等热流 $q_w=const$<br>壁面等热流时，轴向导热精确为零（Pe=RePr&gt;&gt;1），将速度u代入上述简化控制方程，将T替换为$T_m$；<br>$$<br>\alpha\frac{1}{r}\Big(r\frac{\partial T}{\partial r}\Big)+\frac{\partial^2 T}{\partial x^2}=\frac{2u_m}{\alpha}(\frac{\partial T_m}{\partial x})(1-\frac{r^2}{r_0^2})<br>$$<br>对r积分得到$T(r,x)$，然后计算$T_m$，进而得到温度差<br>$$<br>T(r,x)=T_w(x)-\frac{2u_m r_0^2}{\alpha}(\frac{dT_m}{dx})(\frac{3}{16}+\frac{1}{16}\frac{r^4}{r_0^4}-\frac{1}{4}\frac{r^2}{r_0^2})\<br>T_m=\frac{2}{u_mr_0^2}\int_0^{r_0}uTrdr=T_w(x)-\frac{11}{48}(\frac{u_mr_0^2}{\alpha})(\frac{dT_m}{dx})\<br>T_m-T_w=-\frac{11}{48}(\frac{u_mr_0^2}{\alpha})(\frac{dT_m}{dx})=-\frac{11}{48}\frac{q_wD}{\lambda}<br>$$<br>求得<br>$$<br>h=\frac{48}{11}\frac{\lambda}{D}  \ \ \ \ \ \ \ \         Nu=\frac{hD}{\lambda}=\frac{48}{11}=4.364<br>$$</p>
+</li>
+<li><p>等壁温 $T_w=const$<br>等壁温时只能数值求解，Nu=3.66</p>
+</li>
+</ul>
+<h4 id="入口区"><a href="#入口区" class="headerlink" title="入口区"></a>入口区</h4><ul>
+<li>Pr&gt;&gt;1，速度边界层充分发展，而热边界层刚刚发展</li>
+</ul>
+<p>Pe=RePr&gt;&gt;1，因此轴向导热可以忽略，方程能够得到简化<br>​    * 定壁温</p>
+<pre><code>无量纲后利用分离变量法求解
+</code></pre>
+<p>​       * 定热流</p>
+<pre><code>无量纲后线性叠加
+</code></pre>
+<h3 id="湍流流动与换热"><a href="#湍流流动与换热" class="headerlink" title="湍流流动与换热"></a>湍流流动与换热</h3><p><strong>湍流</strong>是由层流中小扰动逐渐放大，最终使层流失去稳定性引起的。其原因有来流不均匀、速度梯度、温度不均引起密度不均、表面粗糙度、流体中的杂质或气泡。一般认为临界Re=$5\cdot10^5$</p>
+<p><strong>特征</strong>：复杂的非定常随机运动，流体微团随时间作不规则的强烈脉动，使不同层流间发生掺混，导致强烈的动量和能量交换。</p>
+<p>对于湍流这种随机运动，研究其平均意义下的值更有意义，时均量定义为：<br>$$<br>\bar{u}(x,y,z,t)=\frac{1}{T}int_{t-\frac{T}{2}}^{t+\frac{T}{2}}u(x,y,z,t)d\tau<br>$$</p>
+<p>其中T称为平均周期，取值要远大于湍流脉动周期，远小于流体作不定常运动的周期。由此湍流流动的速度可表示为时均值和脉动值之和，即</p>
+<p>$$<br>u=\bar{u}+u’<br>$$</p>
+<p>将速度代入连续性方程和动量方程，得到时均方程，方程中增加了由速度脉冲值构成的附加项，具有应力的特征，称为雷诺应力或湍流应力。考虑二维时，该应力矩阵简化为2维矩阵，从剪应力可以引出$\mu_t$。同理，将速度代入能量方程能够引出$\lambda_t$。</p>
+<p>$$<br>-\rho \bar{u’v’}=\mu_t\frac{\partial \bar{u}}{\partial y} \ \ \ \ \ \ \ \ \ \ \ \ \ \mu=\mu+\mu_t   \<br>-\rho c_p\bar{v’T’}=\lambda_t\frac{\partial \bar{T}}{\partial y} \ \ \ \ \ \ \ \ \ \lambda=\lambda+\lambda_t   \<br>$$</p>
+<p>三个控制方程中含有$u, v, T, \mu_t, \lambda_t$五个未知数，因此必须增加两个关于$\mu_t$和$\lambda_t$的方程。</p>
+<h4 id="外掠平板湍流流动—Prandtl混合长模型"><a href="#外掠平板湍流流动—Prandtl混合长模型" class="headerlink" title="外掠平板湍流流动—Prandtl混合长模型"></a>外掠平板湍流流动—Prandtl混合长模型</h4><p>思想：用简单的代数关系将$v_t$与时均速度联系起来，不增加新的微分方程。</p>
+<p>$$<br>\nu_t=l^2|\frac{\partial \bar{u}}{\partial y}|\<br>l=ky \<br>\nu_t=k^2y^2|\frac{\partial \bar{u}}{\partial y}|<br>$$</p>
+<p>从摩擦系数的定义出发，给出常物性边界层的摩擦速度$u^*$，进而无量纲化计算$u^+$与$y^+$的关系</p>
+<p>Prandtl将近壁区分为两层：粘性底层和湍流核心区</p>
+<ul>
+<li>在粘性底层中有$\nu&gt;&gt;\nu_t$，故有$u^+=y^+$</li>
+<li>在湍流核心区有$\nu&lt;&lt;\nu_t$，故有$u^+=\frac{1}{k}\ln y^++B$，该式即为湍流速度分布壁面律</li>
+</ul>
+<p>在上面的壁面律中，壁面切应力用来无量纲化时均速度和坐标y，因此还是个未知数，为了求出壁面切应力以及壁面摩擦阻力因子，还必须求解湍流边界层动量方程。考虑卡门的动量积分方法，必须假设速度剖面，最简单的式Prandtl的1/7幂律，得到</p>
+<p>$$<br>\frac{\delta}{x}=0.37(\frac{u_\infty x}{\nu})^{-1/5}=0.37Re_x^{-1/5}\<br>c_f=\frac{\tau_w}{\rho u_\infty^2/2}=0.0592Re_x^{-1/5}\<br>\bar{c_f}=0.074Re_x^{-1/5}<br>$$<br>上式使用范围为$5\cdot10^5&lt;Re_x&lt;10^7$</p>
+<h4 id="圆管内湍流对流换热"><a href="#圆管内湍流对流换热" class="headerlink" title="圆管内湍流对流换热"></a>圆管内湍流对流换热</h4><p><strong>临界雷诺数Re=2300</strong></p>
+<ul>
+<li>速度剖面（Nikuradse解）</li>
+</ul>
+<p>卡门三层湍流结构解（与外掠平板结果一样）<br>$$<br>u^+<br>$$</p>
+<p>其中公式中的y是由壁面算起沿半径的距离，因此平均速度有$bar{u_m}=\frac{1}{\pi r_0^2}\int_0^{r_0}\bar{u}2\pi rdr$</p>
+<p>此外，由于粘性底层和缓冲层都很薄，可以把湍流核心区的速度剖面应用于整个剖面，这样产生的误差很小。</p>
+<ul>
+<li>摩擦阻力因子</li>
+</ul>
+<p>根据圆管内轴向力的平衡以及摩擦阻力因子的定义式，得到摩擦阻力因子与平均速度的关系式，代入平均速度即得到摩擦阻力因子的表达式。</p>
+<ul>
+<li>壁面恒热流管内湍流充分发展的对流换热</li>
+</ul>
+<p>用平均速度$u_m$代替u，简化计算而不带来很大的误差</p>
+<h3 id="自然对流"><a href="#自然对流" class="headerlink" title="自然对流"></a>自然对流</h3><p><strong>特点</strong>：由于自然对流是由温度梯度所引起的密度梯度所引起的对流，密度受到温度的影响，所以此时流动方程与能量方程需要耦合求解。</p>
+<p>求解方法</p>
+<pre><code>1. 选定特征速度，若为自然对流取最终速度，若为混合对流取来流速度
+2. 定义无量纲数对控制方程无量纲化
+3. 通过连续性方程引入流函数，并用流函数表示速度改写控制方程
+4. 相似变换求解
+</code></pre>
+<p>但由于没有来流速度，如何选择无量纲化的参考速度式一个关键。一个合理的选择式考虑在温度差$T_w-T_\infty$产生的浮升力的作用下，流体整体作无粘运动流过板长L所能到达的最终速度</p>
+<p>$$<br>V\frac{dV}{dx}=g\rho(T_w-T_\infty) \ \ \ \ \ \ V~\sqrt(g\beta \rho(T_w-T_\infty)L)<br>$$<br>以上述速度作为参考速度对控制方程进行无量纲化，此外，若流动为自然对流和受迫对流的混合对流，则可将$u_\infty$作为特征速度<br>$$<br>Gr=\frac{g\beta(T_w-T_\infty)L^3}{\nu^2}<br>$$</p>
+<p>Grashof数，表征浮升力与粘性力之比，其中$\beta$为体膨胀系数。</p>
+<ul>
+<li>Pr&gt;1</li>
+</ul>
+<p>Pr&gt;1说明速度边界层厚度大于热边界层厚度，热充分发展，速度还在发展中</p>
+<ul>
+<li>Pr&lt;1</li>
+</ul>
+<p>Pr&lt;1表示速度边界层厚度小于热边界层厚度，由于是自然对流，充分发展后速度为0不再流动，因此速度与热均充分发展</p>
+<h3 id="沸腾凝结与换热"><a href="#沸腾凝结与换热" class="headerlink" title="沸腾凝结与换热"></a>沸腾凝结与换热</h3><p>在沸腾和凝结过程中，由于有相变存在，即使温差很小，也能产生非常大的换热量，此外界面处的表面张力和密度差也对整个换热过程产生重要影响。所有影响因素如下：</p>
+<p>$$<br>h=h[\Delta T,g(\rho_l-\rho_g),r,\sigma,\rho,c_p,\lambda,\mu]<br>$$</p>
+<p>$$<br>Nu=f\Big[\frac{\rho g(\rho_l-\rho_g)L^3}{\mu^2},Ja,Pr,Bo\Big]<br>$$</p>
+<p>其中</p>
+<p>$$<br>Ja=\frac{c_p\Delta T}{r}   \text{称为Jakob数，表示流体能吸收的最大显热与潜热之比}\<br>Bo=\frac{g(\rho_l-\rho_g)L^2}{\sigma}   \text{称为Bond数，表示重力与表面张力之比}\<br>Ar=\frac{\rho g(\rho_l-\rho_g)L^3}{\mu^2}   \text{称为Archimedes数，表示气液两相密度差引起的浮升力与粘性力的相对大小}<br>$$</p>
+<h4 id="凝结换热"><a href="#凝结换热" class="headerlink" title="凝结换热"></a>凝结换热</h4><h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><ul>
+<li>膜状凝结</li>
+</ul>
+<p><strong>特点</strong>：液体能够浸润壁面；壁面覆盖一层液膜，热阻主要为液膜传热热阻</p>
+<ul>
+<li>珠状凝结</li>
+</ul>
+<p><strong>特点</strong>：液体不能浸润壁面；凝结液体呈珠状；珠状凝结较膜状凝结表面换热系数高，但不易长久维持</p>
+<h5 id="膜状凝结计算"><a href="#膜状凝结计算" class="headerlink" title="膜状凝结计算"></a>膜状凝结计算</h5><h5 id="膜状凝结影响因素"><a href="#膜状凝结影响因素" class="headerlink" title="膜状凝结影响因素"></a>膜状凝结影响因素</h5><ul>
+<li>不凝性气体。不凝性气体的存在使蒸汽分压力下降，由热力学可知响应的饱和温度将下降，凝结发生增加难度。</li>
+<li>蒸汽流速。蒸汽流速对液膜表面产生剪切力和冲击作用。撕破或减薄液膜可增加h。</li>
+<li>蒸汽过热度。</li>
+<li>液膜过冷及温度的非线型分布。</li>
+</ul>
+<h4 id="沸腾换热"><a href="#沸腾换热" class="headerlink" title="沸腾换热"></a>沸腾换热</h4><h1 id="Heat-Radiation"><a href="#Heat-Radiation" class="headerlink" title="Heat Radiation"></a>Heat Radiation</h1>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/" data-toggle="tooltip" data-placement="top"
+                           title="Block Compressed Sparse Row (BSR) Matrix Format">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/03/31/Markdown/" data-toggle="tooltip" data-placement="top"
+                           title="Markdown">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Heat-Conduction"><span class="toc-text">Heat Conduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heat-Convection"><span class="toc-text">Heat Convection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%B5%81%E4%BC%A0%E7%83%AD%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-text">对流传热微分方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E5%B1%82%E7%90%86%E8%AE%BA"><span class="toc-text">边界层理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E6%8E%A0%E5%B9%B3%E6%9D%BF%E5%B1%82%E6%B5%81%E6%B5%81%E5%8A%A8%E4%B8%8E%E6%8D%A2%E7%83%AD"><span class="toc-text">外掠平板层流流动与换热</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E4%BC%BC%E5%8F%98%E6%8D%A2%E6%B3%95"><span class="toc-text">相似变换法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%AF%E5%88%86%E6%96%B9%E7%A8%8B%E6%B3%95"><span class="toc-text">积分方程法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF%E2%80%94%E5%A4%9A%E5%8F%B0%E9%98%B6%E5%B9%B3%E6%9D%BF%E6%B8%A9%E5%BA%A6"><span class="toc-text">推广—多台阶平板温度</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF%E2%80%94%E7%AD%89%E7%83%AD%E6%B5%81%E5%A3%81%E9%9D%A2"><span class="toc-text">推广—等热流壁面</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF%E2%80%94%E5%A4%96%E6%8E%A0%E6%A5%94%E7%8A%B6%E4%BD%93%E5%B1%82%E6%B5%81%E8%BE%B9%E7%95%8C%E5%B1%82"><span class="toc-text">推广—外掠楔状体层流边界层</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95"><span class="toc-text">其他求解方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E6%A7%BD%E5%86%85%E7%9A%84%E5%B1%82%E6%B5%81%E6%B5%81%E5%8A%A8%E4%B8%8E%E6%8D%A2%E7%83%AD"><span class="toc-text">管槽内的层流流动与换热</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%85%E5%88%86%E5%8F%91%E5%B1%95%E5%8C%BA"><span class="toc-text">充分发展区</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%85%E5%88%86%E5%8F%91%E5%B1%95%E5%8C%BA%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">充分发展区的特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6%E2%80%94%E7%AD%89%E5%A3%81%E6%B8%A9%E4%B8%8E%E7%AD%89%E7%83%AD%E6%B5%81"><span class="toc-text">两种常见的边界条件—等壁温与等热流</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3%E5%8C%BA"><span class="toc-text">入口区</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B9%8D%E6%B5%81%E6%B5%81%E5%8A%A8%E4%B8%8E%E6%8D%A2%E7%83%AD"><span class="toc-text">湍流流动与换热</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E6%8E%A0%E5%B9%B3%E6%9D%BF%E6%B9%8D%E6%B5%81%E6%B5%81%E5%8A%A8%E2%80%94Prandtl%E6%B7%B7%E5%90%88%E9%95%BF%E6%A8%A1%E5%9E%8B"><span class="toc-text">外掠平板湍流流动—Prandtl混合长模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%86%E7%AE%A1%E5%86%85%E6%B9%8D%E6%B5%81%E5%AF%B9%E6%B5%81%E6%8D%A2%E7%83%AD"><span class="toc-text">圆管内湍流对流换热</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E5%AF%B9%E6%B5%81"><span class="toc-text">自然对流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%B8%E8%85%BE%E5%87%9D%E7%BB%93%E4%B8%8E%E6%8D%A2%E7%83%AD"><span class="toc-text">沸腾凝结与换热</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%9D%E7%BB%93%E6%8D%A2%E7%83%AD"><span class="toc-text">凝结换热</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%86%9C%E7%8A%B6%E5%87%9D%E7%BB%93%E8%AE%A1%E7%AE%97"><span class="toc-text">膜状凝结计算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%86%9C%E7%8A%B6%E5%87%9D%E7%BB%93%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="toc-text">膜状凝结影响因素</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B2%B8%E8%85%BE%E6%8D%A2%E7%83%AD"><span class="toc-text">沸腾换热</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heat-Radiation"><span class="toc-text">Heat Radiation</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 诗 2021
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    }});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="无所不想，无所不好">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="诗" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        FracTHM Simulator｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2019/04/21/FracTHM-Simulator/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    诗
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>FracTHM Simulator</h1>
+                    
+                    <span class="meta">
+                         作者 Zheng Shuai
+                        <span>
+                          日期 2019-04-21
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#-笔记"
+                           title="-笔记">-笔记</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            FracTHM Simulator
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="Governing-Equation"><a href="#Governing-Equation" class="headerlink" title="Governing Equation"></a>Governing Equation</h3><ul>
+<li><p>Geomechanics<br>$$<br>\nabla\cdot (C_{dr}:\mathbf{\varepsilon}-bp\mathbf{\delta} -3\alpha K\Theta\mathbf{\delta})+\rho_b g=\mathbf{0}<br>$$</p>
+</li>
+<li><p>Mass Equation</p>
+</li>
+</ul>
+<p>$$<br>\frac{1}{B}\Big[b\frac{\partial \epsilon}{\partial t}+\frac{1}{M}\frac{\partial p}{\partial t}-3\alpha_m\frac{\partial \Theta}{\partial t}\Big]-\frac{1}{\mu B}\nabla\cdot\Big(\mathbf{k}(\nabla p-\rho_f \mathbf{g}\nabla D)\Big)=q_f<br>$$</p>
+<ul>
+<li>Energy</li>
+</ul>
+<p>$$<br>3\alpha TK\frac{\partial \epsilon}{\partial t}-3\alpha_m T\frac{\partial p}{\partial t}+C_d\frac{\partial \Theta}{\partial t}-\nabla \cdot\Big(\mathbf{k}\nabla\Theta+\frac{\rho_f g}{\mu}\mathbf{k}(\nabla p-\rho_f \mathbf{g}\nabla D)\Big)=q_h<br>$$</p>
+<h3 id="Discretization"><a href="#Discretization" class="headerlink" title="Discretization"></a>Discretization</h3><p>对Mass Balance Equation进行差分离散，先将其展开成直角坐标分量形式</p>
+<p>$$<br>\frac{1}{B}\Big[b\frac{\partial \epsilon}{\partial t}+\frac{1}{M}\frac{\partial p}{\partial t}-3\alpha_m\frac{\partial \Theta}{\partial t}\Big]+\<br>\frac{1}{B}\Bigg[\frac{\partial}{\partial x}\left[\lambda\left(\frac{\partial p}{\partial x}-\gamma \frac{\partial D}{\partial x}\right)\right]+\frac{\partial}{\partial y}\left[\lambda\left(\frac{\partial p}{\partial y}-\gamma \frac{\partial D}{\partial y}\right)\right]+\frac{\partial}{\partial z}\left[\lambda\left(\frac{\partial p}{\partial z}-\gamma \frac{\partial D}{\partial z}\right)\right]\Bigg]=q_{f}<br>$$</p>
+<p>对于$(i,j,k,n+1)$网格进行离散，差分方程：<br>$$<br>\frac{1}{B}<br>\Big[<br>b_i\Big(\frac{\epsilon_{i}^{n+1}-\epsilon_{i}^{n}}{\Delta t}\Big)+<br>\frac{1}{M_i}\Big(\frac{p_{i}^{n+1}-p_{i}^{n}}{\Delta t}\Big)-<br>3\alpha_{mi} \Big(\frac{T_{i}^{n+1}-T_{i}^{n}}{\Delta t}\Big)<br>\Big]+\<br>\frac{1}{B}<br>\Bigg[<br>\frac{1}{\Delta x_i}<br>\Big[<br>\lambda_{i+\frac{1}{2}}[\frac{p_{i+1}^{n+1}-p_{i}^{n+1}}{\Delta x_{i+\frac{1}{2}}}-\gamma_{i+\frac{1}{2}}\frac{D_{i+1}^{n+1}-D_{i}^{n+1}}{\Delta x_{i+\frac{1}{2}}}] - \lambda_{i-\frac{1}{2}}[\frac{p_{i}^{n+1}-p_{i-1}^{n+1}}{\Delta x_{i-\frac{1}{2}}}-\gamma_{i-\frac{1}{2}}\frac{D_{i}^{n+1}-D_{i-1}^{n+1}}{\Delta x_{i-\frac{1}{2}}}]<br>\Big]<br>+\<br>\frac{1}{\Delta y_i}<br>\Big[<br>\lambda_{j+\frac{1}{2}}[\frac{p_{j+1}^{n+1}-p_{j}^{n+1}}{\Delta y_{j+\frac{1}{2}}}-\gamma_{j+\frac{1}{2}}\frac{D_{j+1}^{n+1}-D_{j}^{n+1}}{\Delta y_{j+\frac{1}{2}}}] - \lambda_{j-\frac{1}{2}}[\frac{p_{j}^{n+1}-p_{j-1}^{n+1}}{\Delta y_{j-\frac{1}{2}}}-\gamma_{j-\frac{1}{2}}\frac{D_{j}^{n+1}-D_{j-1}^{n+1}}{\Delta y_{j-\frac{1}{2}}}]<br>\Big]<br>+\<br>\frac{1}{\Delta z_i}<br>\Big[<br>\lambda_{k+\frac{1}{2}}[\frac{p_{k+1}^{n+1}-p_{k}^{n+1}}{\Delta z_{k+\frac{1}{2}}}-\gamma_{k+\frac{1}{2}}\frac{D_{k+1}^{n+1}-D_{k}^{n+1}}{\Delta z_{k+\frac{1}{2}}}] - \lambda_{k-\frac{1}{2}}[\frac{p_{k}^{n+1}-p_{k-1}^{n+1}}{\Delta z_{k-\frac{1}{2}}}-\gamma_{k-\frac{1}{2}}\frac{D_{k}^{n+1}-D_{k-1}^{n+1}}{\Delta z_{k-\frac{1}{2}}}]<br>\Big]<br>\Bigg]=q_f<br>$$<br>其中：</p>
+<p>$\lambda=k/ \mu,\ \ \gamma=\rho_f g,\ \ \ i+1/2=i+1/2,j,k$</p>
+<p>定义传导系数T<br>$$<br>T_{i+\frac{1}{2}}=\frac{k_{i+\frac{1}{2}}A}{\Delta x_{i+\frac{1}{2}}}=\frac{V_{ijk}}{\Delta x_i}\frac{k_{i+\frac{1}{2}}}{\Delta x_{i+\frac{1}{2}}}<br>$$<br>差分方程同乘$V_{ijk}$</p>
+<p>$$<br>\frac{V_{ijk}}{B}<br>\Big[<br>b_i\Big(\frac{\epsilon_{i}^{n+1}-\epsilon_{i}^{n}}{\Delta t}\Big)+<br>\frac{1}{M_i}\Big(\frac{p_{i}^{n+1}-p_{i}^{n}}{\Delta t}\Big)-<br>3\alpha_{mi} \Big(\frac{T_{i}^{n+1}-T_{i}^{n}}{\Delta t}\Big)<br>\Big]+<br>\frac{1}{B}\<br>\Bigg[<br>\Big[<br>\frac{1}{\mu_{i+\frac{1}{2}}}T_{i+\frac{1}{2}}[p_{i+1}^{n+1}-p_{i}^{n+1}-\gamma_{i+\frac{1}{2}}(D_{i+1}^{n+1}-D_{i}^{n+1})] -<br>\frac{1}{\mu_{i-\frac{1}{2}}}T_{i-\frac{1}{2}}[p_{i}^{n+1}-p_{i-1}^{n+1}-\gamma_{i-\frac{1}{2}}(D_{i}^{n+1}-D_{i-1}^{n+1})]<br>\Big]<br>\+\<br>\Big[<br>\frac{1}{\mu_{j+\frac{1}{2}}}T_{j+\frac{1}{2}}[p_{j+1}^{n+1}-p_{j}^{n+1}-\gamma_{j+\frac{1}{2}}(D_{j+1}^{n+1}-D_{j}^{n+1})] -<br>\frac{1}{\mu_{j-\frac{1}{2}}}T_{j-\frac{1}{2}}[p_{j}^{n+1}-p_{j-1}^{n+1}-\gamma_{j-\frac{1}{2}}(D_{j}^{n+1}-D_{j-1}^{n+1})]<br>\Big]<br>\+\<br>\Big[<br>\frac{1}{\mu_{k+\frac{1}{2}}}T_{k+\frac{1}{2}}[p_{k+1}^{n+1}-p_{k}^{n+1}-\gamma_{k+\frac{1}{2}}(D_{k+1}^{n+1}-D_{k}^{n+1})] -<br>\frac{1}{\mu_{k-\frac{1}{2}}}T_{k-\frac{1}{2}}[p_{k}^{n+1}-p_{k-1}^{n+1}-\gamma_{k-\frac{1}{2}}(D_{k}^{n+1}-D_{k-1}^{n+1})]<br>\Big]<br>\Bigg]\=q_f<br>$$</p>
+<p>对网格单元$i$和与其相邻的网格$j$来看</p>
+<h4 id="Active"><a href="#Active" class="headerlink" title="Active()"></a>Active()</h4><h6 id="ActiveSolid"><a href="#ActiveSolid" class="headerlink" title="ActiveSolid()"></a>ActiveSolid()</h6><ul>
+<li>ActiveSolid()：计算节点刚度$Ke$，并添加外部载荷$\rho_b g$，得到固体系数$C_{dr}$。 GGP</li>
+<li>ActiveFlw()：</li>
+</ul>
+<p>![](D:\00 GitHub\Myblog\blog\source_posts\FracTHM-Simulator\JacMtrix.png)</p>
+<ul>
+<li>刚度矩阵 <strong>GGP</strong>(Geomechanics-Geochanics Primary)</li>
+<li>耦合矩阵 <strong>GRP</strong>(Geomechanics-Reservoir Primary)</li>
+<li>耦合矩阵 <strong>RGP</strong>(Reservoir-Geomechanics Primary)</li>
+<li>流体-热流动矩阵 <strong>RRP</strong>(Reservoir-Reservoir Primary)</li>
+</ul>
+<p>各个矩阵都是稀疏矩阵，采用intel MKL solver直接求解，矩阵使用intel BSR(Block Sparse Row)格式分块存储，具体存储格式见<a target="_blank" rel="noopener" href="http://z-s.xyz/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/">Block Compressed Sparse Row (BSR) Matrix Format</a>。</p>
+<p>对于RRP矩阵$b_h=b_w=2$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">RRP.value = <span class="keyword">new</span> <span class="keyword">double</span>[NNZ*blocksize];</span><br><span class="line"><span class="comment">//NNZ: Number of non-zero block; for sym matrix, repeat connections are not contained</span></span><br><span class="line"><span class="comment">//blocksize: block_h*block_w</span></span><br><span class="line"></span><br><span class="line">RRP.da = <span class="keyword">new</span> <span class="keyword">int</span>[ROW];   <span class="comment">//index of diagonal block&#x27;s first entry for i-th row</span></span><br><span class="line">RRP.la = <span class="keyword">new</span> <span class="keyword">int</span>[CNC];   <span class="comment">//index of the la-block entry&#x27;s starting address of i-th Cnc </span></span><br><span class="line">RRP.ua = <span class="keyword">new</span> <span class="keyword">int</span>[CNC];   <span class="comment">//index of the ua-block entry&#x27;s starting address of i-th Cnc</span></span><br><span class="line"><span class="comment">//Example: RRP.la[4] stand for the starting address of the second(1-th Cnc) la-block.</span></span><br><span class="line"><span class="comment">//		   So, the block value is RRP.value[RRP.value + RRP.la[4]]</span></span><br></pre></td></tr></table></figure>
+
+<p>在RRP矩阵中$b_h=b_w=2$</p>
+<p>$$<br>\begin{align}<br>\Delta t\Big[-<br>[\frac{1}{MB}+T_{1D}+T_{1L}+T_{12}+T_{14}]p_{1}^{n+1}+T_{12}p_{2}^{n+1}+T_{14}p_{4}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{1}^{n}-T_{1D}p_{DB}-T_{1L}p_{LB}]\<br>\Delta t\Big[T_{21}p_{1}^{n+1}-[\frac{1}{MB}+T_{2D}+T_{21}+T_{23}+T_{25}]p_{2}^{n+1}+T_{23}p_{3}^{n+1}+T_{25}p_{5}^{n+1}\Big]=\Delta t[q_f+\frac{1}{MB}p_{2}^{n}-T_{2D}p_{DB}]\<br>\Delta t\Big[T_{32}p_{2}^{n+1}-[\frac{1}{MB}+T_{3D}+T_{32}+T_{3R}+T_{36}]p_{3}^{n+1}+T_{36}p_{6}^{n+1}\Big]=\Delta t[q_f+\frac{1}{MB}p_{2}^{n}-T_{3D}p_{DB}-T_{3R}p_{RB}]\<br>\Delta t\Big[T_{41}p_{1}^{n+1}-<br>[\frac{1}{MB}+T_{41}+T_{4L}+T_{45}+T_{47}]p_{4}^{n+1}+T_{45}p_{5}^{n+1}+T_{47}p_{7}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{4}^{n}-T_{4L}p_{LB}]\<br>\Delta t\Big[T_{52}p_{2}^{n+1}+T_{54}p_{4}^{n+1}-<br>[\frac{1}{MB}+T_{52}+T_{54}+T_{56}+T_{58}]p_{5}^{n+1}+T_{56}p_{6}^{n+1}+T_{58}p_{8}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{5}^{n}]\<br>\Delta t\Big[T_{63}p_{3}^{n+1}+T_{65}p_{5}^{n+1}-<br>[\frac{1}{MB}+T_{63}+T_{65}+T_{6R}+T_{69}]p_{6}^{n+1}+T_{69}p_{9}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{6}^{n}-T_{6R}p_{RB}]\<br>\Delta t\Big[T_{74}p_{4}^{n+1}-<br>[\frac{1}{MB}+T_{74}+T_{7L}+T_{78}+T_{7U}]p_{7}^{n+1}+T_{78}p_{8}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{4}^{n}-T_{7L}p_{LB}-T_{7U}p_{UB}]\<br>\Delta t\Big[T_{85}p_{5}^{n+1}+T_{87}p_{7}^{n+1}-<br>[\frac{1}{MB}+T_{85}+T_{87}+T_{89}+T_{8U}]p_{8}^{n+1}+T_{89}p_{9}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{8}^{n}-T_{8U}p_{UB}]\<br>\Delta t\Big[T_{96}p_{6}^{n+1}+T_{98}p_{8}^{n+1}-<br>[\frac{1}{MB}+T_{96}+T_{98}+T_{9R}+T_{9U}]p_{9}^{n+1}\Big]<br>=\Delta t[q_f+\frac{1}{MB}p_{9}^{n}-T_{9R}p_{RB}+T_{9U}p_{UB}]\<br>\end{align}<br>$$</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/08/31/hello-world/" data-toggle="tooltip" data-placement="top"
+                           title="Hello World">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/" data-toggle="tooltip" data-placement="top"
+                           title="Block Compressed Sparse Row (BSR) Matrix Format">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Governing-Equation"><span class="toc-text">Governing Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discretization"><span class="toc-text">Discretization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Active"><span class="toc-text">Active()</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ActiveSolid"><span class="toc-text">ActiveSolid()</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 诗 2021
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processEscapes: true
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    }});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
