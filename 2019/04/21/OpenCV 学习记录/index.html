@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Block Compressed Sparse Row (BSR) Matrix Format｜undefined
+        OpenCV 学习记录｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/">
+    <link rel="canonical" href="http://yoursite.com/2019/04/21/OpenCV 学习记录/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -134,13 +134,13 @@
 
 
 <img class="wechat-title-img"
-     src="undefinedBlock-Matrix.png">
+     src="">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('Block-Matrix.pngundefined')
+        background-image: url('')
     }
 
     
@@ -151,12 +151,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Block Compressed Sparse Row (BSR) Matrix Format</h1>
+                    <h1>OpenCV 学习记录</h1>
                     
                     <span class="meta">
-                         作者 Shuai Zheng
+                         作者 Zheng Shuai
                         <span>
-                          日期 2019-04-20
+                          日期 2019-04-21
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -171,7 +171,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Block Compressed Sparse Row (BSR) Matrix Format
+            OpenCV 学习记录
         </span>
     </div>
 </header>
@@ -182,27 +182,10 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>BSR is format storage sparse matrix, mainly used in intel MKL solver. Uniform blocks are spilted in original matrix and the zero-blocks and non-zero-blocks are exactly in the blocks. NOTED THAT, the dimension of original matrix must be the integer multiple of the block dimension, ensuring the matrix can be spilt uniformly.</p>
-<p>Here’s an example to explain BSR</p>
-<p>$$<br>D=<br>\begin{pmatrix}<br>1 &amp; 0 &amp; 6 &amp; 7 &amp; * &amp; * \<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; * &amp; * \<br>1 &amp; * &amp; 1 &amp; 4 &amp; * &amp; * \<br>1 &amp; * &amp; 5 &amp; 1 &amp; * &amp; * \<br>1 &amp; * &amp; 4 &amp; 3 &amp; 7 &amp; 2 \<br>1 &amp; * &amp; 0 &amp; 0 &amp; 0 &amp; 0<br>\end{pmatrix}<br>$$</p>
-<p>1 &amp; 0 &amp; 6 &amp; 7 &amp; * &amp; * \<br>2 &amp; 1 &amp; 8 &amp; 2 &amp; * &amp; * \</p>
-<ul>
-<li>&amp; * &amp; 1 &amp; 4 &amp; * &amp; * \</li>
-<li>&amp; * &amp; 5 &amp; 1 &amp; * &amp; * \</li>
-<li>&amp; * &amp; 4 &amp; 3 &amp; 7 &amp; 2 \</li>
-<li>&amp; * &amp; 0 &amp; 0 &amp; 0 &amp; 0 \<br>For example, assuming the size of block is 2.</li>
-</ul>
-<p><img src="Block-Matrix.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">values=[<span class="number">1</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">0</span> <span class="number">0</span> <span class="number">7</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">columes=[<span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span>]</span><br><span class="line">rowIndex=[<span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>Values<br>A real array that contains the elements of the <strong>non-zero blocks</strong> of a sparse matrix. The elements are stored block-by-block in row-major order. A non-zero block is the block that contains at least one non-zero element. All elements of non-zero blocks are stored, even if some of them is equal to zero. Within each non-zero block elements are stored in column-major order in the case of one-based indexing, and in row-major order in the case of the zero-based indexing.</p>
-<p>columns<br>Element i of the integer array columns is the number of the column in the block matrix that contains thei-th non-zero block.</p>
-<p>rowIndex</p>
-<p>Total blocks amount previous block-row i. </p>
-<pre><code>rowIndex[i+1]-rowIndex[i]=Block Num in block-row i
-</code></pre>
-<hr>
-<p>Reference:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/seamanj/article/details/83004011">block compressed sparse row (BSR) matrix format</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37525925">稀疏矩阵的主要存储格式</a><br><a target="_blank" rel="noopener" href="http://www.cs.colostate.edu/~mcrob/toolbox/c++/sparseMatrix/sparse_matrix_compression.html">Sparse Matrix Compression Formats</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/anshan1984/article/details/8580952">稀疏矩阵的存储格式（Sparse Matrix Storage Formats）</a></p>
+                <h3 id="OpenCV学习记录"><a href="#OpenCV学习记录" class="headerlink" title="OpenCV学习记录"></a>OpenCV学习记录</h3><h3 id="Opencv安装与配置"><a href="#Opencv安装与配置" class="headerlink" title="Opencv安装与配置"></a>Opencv安装与配置</h3><p>《<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv9542204/">使用Anconda安装opencv，forMac</a>》登陆<a target="_blank" rel="noopener" href="http://www.anconda.org搜索想要的包,使用说明中的命令安装/">www.anconda.org搜索想要的包，使用说明中的命令安装</a><br>《<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41622348/article/details/100582862">Conda安装报错问题</a>》</p>
+<h3 id="视频稳像"><a href="#视频稳像" class="headerlink" title="视频稳像"></a>视频稳像</h3><p>《<a target="_blank" rel="noopener" href="https://blog.csdn.net/hjl240/article/details/52683738">视频稳像介绍</a>》<br>《<a target="_blank" rel="noopener" href="https://luzhimin.blog.csdn.net/article/details/114523558">高空拍摄视频消抖，静态特征匹配，Flan算法</a>》 注意对匹配点过滤，某些帧处理后得不到足够的匹配特征，程序运行出错。<br>《<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42555985/article/details/100690167">视频特征匹配，单应函数Homography详解，特征匹配用于图像变换和扭转</a>》</p>
+<h3 id="特征匹配"><a href="#特征匹配" class="headerlink" title="特征匹配"></a>特征匹配</h3><p>《<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/74040063">OpenCV图像处理- 特征点检测、描述子匹配</a>》</p>
+<h3 id="形状判断"><a href="#形状判断" class="headerlink" title="形状判断"></a>形状判断</h3><h3 id="基于连通的轮廓识别"><a href="#基于连通的轮廓识别" class="headerlink" title="基于连通的轮廓识别"></a>基于连通的轮廓识别</h3><p>《<a target="_blank" rel="noopener" href="https://zhangxu.blog.csdn.net/article/details/70330979">轮廓线绘图和筛选方法总结</a>》</p>
 
                 <hr>
                 
@@ -210,14 +193,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/04/21/OpenCV 学习记录/" data-toggle="tooltip" data-placement="top"
-                           title="OpenCV 学习记录">&larr; Previous Post</a>
+                        <a href="/2019/04/21/FracTHM-Simulator/" data-toggle="tooltip" data-placement="top"
+                           title="FracTHM Simulator">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2019/01/01/传热传质/" data-toggle="tooltip" data-placement="top"
-                           title="Adv. HMT">Next Post &rarr;</a>
+                        <a href="/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/" data-toggle="tooltip" data-placement="top"
+                           title="Block Compressed Sparse Row (BSR) Matrix Format">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -236,7 +219,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-text">OpenCV学习记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Opencv%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">Opencv安装与配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E7%A8%B3%E5%83%8F"><span class="toc-text">视频稳像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%8C%B9%E9%85%8D"><span class="toc-text">特征匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%A2%E7%8A%B6%E5%88%A4%E6%96%AD"><span class="toc-text">形状判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%BF%9E%E9%80%9A%E7%9A%84%E8%BD%AE%E5%BB%93%E8%AF%86%E5%88%AB"><span class="toc-text">基于连通的轮廓识别</span></a></li></ol>
                 </div>
             </div>
         </div>
