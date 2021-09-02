@@ -43,7 +43,7 @@
 <style>
 
     header.intro-header {
-        background-image: url('images/head.jpg')
+        background-image: url('images/bg.jpg')
     }
 </style>
 <!-- hack iOS CSS :active style -->
@@ -192,7 +192,7 @@
 <li>&amp; * &amp; 4 &amp; 3 &amp; 7 &amp; 2 \</li>
 <li>&amp; * &amp; 0 &amp; 0 &amp; 0 &amp; 0 \<br>For example, assuming the size of block is 2.</li>
 </ul>
-<p><img src="Block-Matrix.png"></p>
+<p><img src="/2019/04/20/Block-Compressed-Sparse-Row-BSR-Matrix-Format/Block-Matrix.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">values=[<span class="number">1</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">1</span> <span class="number">4</span> <span class="number">3</span> <span class="number">0</span> <span class="number">0</span> <span class="number">7</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">columes=[<span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span>]</span><br><span class="line">rowIndex=[<span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
 
 <p>Values<br>A real array that contains the elements of the <strong>non-zero blocks</strong> of a sparse matrix. The elements are stored block-by-block in row-major order. A non-zero block is the block that contains at least one non-zero element. All elements of non-zero blocks are stored, even if some of them is equal to zero. Within each non-zero block elements are stored in column-major order in the case of one-based indexing, and in row-major order in the case of the zero-based indexing.</p>
@@ -445,7 +445,7 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!--wechat title img-->
-<img class="wechat-title-img" src="images/head.jpg">
+<img class="wechat-title-img" src="images/bg.jpg">
 </body>
 
 </html>
